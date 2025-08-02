@@ -1,4 +1,4 @@
-# *Agenda de Tareas - Sprint 1*
+# *Agenda de Tareas - Sprint 2*
 
 tareas = []
 
@@ -8,6 +8,12 @@ def agregar_tarea(titulo):
         tareas.append(tarea)
         return "Tarea agregada."
     return "Error: la tarea no puede estar vacía."
+
+def eliminar_tarea(indice):
+    if 0 <= indice < len(tareas):
+        tarea = tareas.pop(indice)
+        return f"Tarea eliminada: {tarea['titulo']}"
+    return "Índice inválido."
 
 def mostrar_tareas():
     if not tareas:
@@ -25,7 +31,7 @@ def marcar_completada(indice):
     return "Índice inválido."
 
 # Simulación
-print("-----AGENDA - Sprint 1-----")
+print("-----AGENDA - Sprint 2-----")
 print(agregar_tarea("Estudiar para el examen"))
 print(agregar_tarea("Comprar el pan"))
 print(agregar_tarea("Limpiar la casa"))
@@ -38,5 +44,11 @@ print(marcar_completada(0))
 print(marcar_completada(2))
 
 print("\nESTADO ACTUAL:")
+print(mostrar_tareas())
+
+print("\nELIMINAR UNA TAREA:")
+print(eliminar_tarea(1))  # Elimina "Comprar el pan"
+
+print("\nTAREAS FINALES:")
 print(mostrar_tareas())
 
